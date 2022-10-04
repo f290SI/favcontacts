@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="~@{css/bootstrap.min.css}">
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8 col-lg-6">
+                <form action="#" th:action="@{/add}" th:object="${contato}" method="post">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" th:field="*{nome}" id="name" placeholder="Name" class="form-control">
+                        <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" th:field="*{email}" id="email" placeholder="Email" class="form-control">
+                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Telefone</label>
+                        <input type="text" th:field="*{telefone}" id="telefone" placeholder="Telefone"
+                            class="form-control">
+                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Adicionar">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
