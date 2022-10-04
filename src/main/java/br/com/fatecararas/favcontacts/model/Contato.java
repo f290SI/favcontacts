@@ -22,8 +22,7 @@ public class Contato implements Serializable {
     public Contato() {
     }
 
-    public Contato(Integer id, String nome, String email, String telefone) {
-        this.id = id;
+    public Contato(String nome, String email, String telefone) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
@@ -75,4 +74,10 @@ public class Contato implements Serializable {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    @Override
+    public String toString() {
+        return "Contato [id=" + id + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone + "]";
+    }
+    
 }

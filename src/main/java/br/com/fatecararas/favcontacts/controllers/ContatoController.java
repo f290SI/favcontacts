@@ -10,8 +10,13 @@ import br.com.fatecararas.favcontacts.model.Contato;
 @RequestMapping("/")
 public class ContatoController {
     
-    @GetMapping("/add")
+    @GetMapping("/adicionar")
     public String formulariocadastro(Contato contato) {
         return "adicionar";
+    }
+
+    @GetMapping("/todos")
+    public String listarContatos() {
+        return "index";
     }
 }

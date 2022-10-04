@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +9,40 @@
     <!--CSS BootStrap-->
     <link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
 </head>
+
 <body>
-    
+    <div class="container">        
+        <div class="row">
+            <div class="col-sm-12 col-md-8 col-lg-6">
+                <h1>Contatos</h1>
+                <a class="btn btn-primary mt-4 mb-4" href="/adicionar">Adicionar Usuario</a>
+                <table class="table table-hover table-responsive-md">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Telefone</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td>Jose Luis</td>
+                            <td>josel@gmail.com</td>
+                            <td>19-98765-0978</td>
+                            <td><a href=""><img height="16px" th:src="@{/images/edit.png}" /></a></td>
+                            <td><a href=""><img height="16px" th:src="@{/images/delete.png}" /></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>    
     <!--JS BootStrap-->
     <script th:src="@{js/bootstrap.min.js}"></script>
 </body>
+
 </html>
