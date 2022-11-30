@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" layout:decorate="~{layout}">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <meta charset="UTF-8">    
     <title>Cadastro</title>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" layout:fragment="corpo">
         <div class="row">
             <div class="col-sm-12 col-md-8 col-lg-6">
-                <form action="#" th:action="@{/add}" th:object="${contato}" method="post">
+                <div th:replace="fragments/alert"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-8 col-lg-6">
+                <form action="#" th:action="${contato.id == null} ? @{/add} : @{/edit}" th:object="${contato}" method="post">
                     <div class="form-group mt-4">
                         <label for="name">Nome</label>
                         <input type="text" th:field="*{nome}" id="name" placeholder="Name" class="form-control">
@@ -31,6 +33,7 @@
                         <span th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"></span>
                     </div>
                     <input type="submit" class="btn btn-primary mt-4" value="Adicionar">
+                    <input type="hidden" id="id" th:field="*{id}" />
                 </form>
             </div>
         </div>

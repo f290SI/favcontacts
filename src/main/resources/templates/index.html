@@ -1,53 +1,52 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="pt-BR" layout:decorate="~{layout}">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrat Test</title>
+    <title>Contatos</title>
     <!--CSS BootStrap-->
-    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
 </head>
 
 <body>
-    <div th:switch="${contatos}" class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-8 col-lg-6">
-                <h2 th:case="null">Ainda não foram cadastrados contatos.</h2>
-                <div th:case="*">
-                    <h1>Contatos</h1>
-                    <a class="btn btn-primary mt-4 mb-4" href="/adicionar">Adicionar Usuario</a>
-                    <table class="table table-hover table-responsive-md">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nome</th>
-                                <th>E-mail</th>
-                                <th>Telefone</th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="c : ${contatos}">
-                                <td th:text="${c.id}"></td>
-                                <td th:text="${c.nome}"></td>
-                                <td th:text="${c.email}"></td>
-                                <td th:text="${c.telefone}"></td>
-                                <td><a th:href="@{/edit/{id}(id=${c.id})}"><img height="16px"
-                                            th:src="@{/images/edit.png}" /></a></td>
-                                <td><a th:href="@{/delete/{id}(id=${c.id})}"><img height="16px"
-                                            th:src="@{/images/delete.png}" /></a></td>
-                            </tr>
-                        </tbody>
-                    </table>
+    <div class="container-fluid" layout:fragment="corpo">
+        <div th:switch="${contatos}" class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-8 col-lg-6">
+                    <h2 th:case="null">Ainda não foram cadastrados contatos.</h2>
+                    <div th:case="*">
+                        <h1>Contatos</h1>
+                        <a class="btn btn-primary mt-4 mb-4" href="/adicionar">Adicionar Usuario</a>
+                        <table class="table table-hover table-responsive-md">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>E-mail</th>
+                                    <th>Telefone</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="c : ${contatos}">
+                                    <td th:text="${c.id}"></td>
+                                    <td th:text="${c.nome}"></td>
+                                    <td th:text="${c.email}"></td>
+                                    <td th:text="${c.telefone}"></td>
+                                    <td><a th:href="@{/edit/{id}(id=${c.id})}"><img height="16px"
+                                                th:src="@{/images/edit.png}" /></a></td>
+                                    <td><a th:href="@{/delete/{id}(id=${c.id})}"><img height="16px"
+                                                th:src="@{/images/delete.png}" /></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <!--JS BootStrap-->
-    <script th:src="@{js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
 </body>
 
 </html>
